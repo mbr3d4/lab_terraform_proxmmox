@@ -1,17 +1,18 @@
-pipeline{
+pipeline {
     agent any
-    tools{
+    tools {
         terraform 'terraform-11'
     }
-    stages{
-        stage('terraform init'){
-            steps{
-                sh label: '', script:'terraform init'
+    
+    stages {
+        stage('Terraform init') {
+            steps {
+                sh 'terraform init'
             }
         }
-        stage('terraform apply'){
-            steps{
-                sh label: '', script:'terraform apply --auto-aprove'
+        stage('Terraform apply') {
+            steps {
+                sh 'terraform apply --auto-approve'
             }
         }
     }
