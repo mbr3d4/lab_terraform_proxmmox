@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment {
-        ANSIBLE_PRIVATE_KEY=credentials('id_rsa.pub')
-    }
-    
+       
     stages {
        stage('Terraform init'){
             steps{
@@ -22,7 +19,7 @@ pipeline {
        stage('Ansible Docker'){
             steps{
                 dir("ansible") {
-                    sh 'ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY playbook.yml'
+                    sh 'ansible-playbook -i hosts --private-key=$docker playbook.yml'
                }
             }
         }
