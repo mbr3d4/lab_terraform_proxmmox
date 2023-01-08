@@ -5,14 +5,14 @@ pipeline {
         stage('Terraform init') {
             steps {
                 script{
-                sh '/tf/vm terraform init'
+                sh 'cd tf/vm && terraform init'
                 }
             }
         }
               stage('Terraform apply') {
             steps {
                 script{
-                sh '/tf/vm terraform apply --auto-approve'
+                sh 'cd tf/vm && terraform apply --auto-approve'
                 }
             }
         }
