@@ -16,5 +16,12 @@ pipeline {
                }
             }
         }
+       stage('Ansible Docker'){
+            steps{
+                dir("ansible") {
+                    sh 'ansible-playbook playbook.yml -i hosts'
+               }
+            }
+        }
     }
 }
