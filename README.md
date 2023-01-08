@@ -1,6 +1,9 @@
 # lab_terraform_proxmmox
+https://cloud-images.ubuntu.com/jammy/current/?C=S;O=D
 
 apt-get install libguestfs-tools
+wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+
 
 virt-customize -a jammy-server-cloudimg-amd64.img --install qemu-guest-agent
 
