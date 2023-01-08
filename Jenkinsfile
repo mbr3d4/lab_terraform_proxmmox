@@ -1,26 +1,17 @@
-pipeline
-    agent {
-        label 'default'
-    }
-    tools {
+pipeline{
+    agent any
+    tools{
         terraform 'terraform-11'
     }
-    
     stages{
-        stage('Git Checkout'){
+        stage('terraform init'){
             steps{
-                git 'https://github.com/mbr3d4/lab_terraform_proxmmox.git'
+                sh label: '', script:'terraform init'
             }
         }
-        stage('Terraform init'){
+        stage('terraform apply'){
             steps{
-                sh 'terraform init'
-            }
-        }
-        stage('Terraform Apply'){
-            steps{
-                sh 'terraform apply --auto-approve'
-                }
+                sh label: '', script:'terraform apply --auto-aprove'
             }
         }
     }
