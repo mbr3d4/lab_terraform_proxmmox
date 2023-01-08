@@ -3,6 +3,7 @@ variable "proxmox_host" {
      default = {
        pm_api_url = "https://192.168.0.200:8006/api2/json"
        pm_user = "root@pam"
+       pm_pass = "123456"
        target_node = "breda"
      }
 }
@@ -17,7 +18,7 @@ variable "hostnames" {
   description = "VMs to be created"
   type        = list(string)
   #default     = ["prod-vm", "staging-vm", "dev-vm"]
-  default     = ["prod-vm"]
+  default     = ["docker-vm"]
 }
 
 variable "rootfs_size" {

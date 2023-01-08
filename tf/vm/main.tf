@@ -1,6 +1,7 @@
 provider "proxmox" {
     pm_api_url = var.proxmox_host["pm_api_url"]
     pm_user = var.proxmox_host["pm_user"]
+    pm_password = var.proxmox_host["pm_pass"]
     pm_tls_insecure = true
 }
 
@@ -39,7 +40,7 @@ resource "proxmox_vm_qemu" "prox-vm" {
     #id = 0
     type = "virtio"
     storage = "local-lvm"
-    size = "5G"
+    size = "20G"
   }
 
   os_type = "cloud-init"
