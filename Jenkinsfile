@@ -19,7 +19,7 @@ pipeline {
        stage('Ansible Docker'){
             steps{
                 dir("ansible") {
-                    sh 'ansible-playbook -i hosts --private-key=$docker playbook.yml'
+                    sh 'ansible-playbook playbook.yml -i hosts'
                }
             }
         }
